@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">cohen\'s taxis</string>
+    <string name="available_taxis">Available taxis</string>
+    <string name="do_something_1">My trip</string>
+    <string name="do_something_2">Start location: Big oak tree 3, Tel Aviv</string>
+    <string name="do_something_3">Destination location: Magrathea</string>
+    <string name="do_something_4">Expected Coast: $3</string>
+    <string name="t">T</string>
+
+</resources>
