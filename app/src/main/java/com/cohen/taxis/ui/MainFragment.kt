@@ -115,9 +115,9 @@ class MainFragment : Fragment() {
     }
 
     private fun setupRecyclerView(recyclerView: RecyclerView) {
-        adapter = TaxisRecyclerViewAdapter(
-            activity as MainActivity, {}
-        )
+        adapter = TaxisRecyclerViewAdapter {
+            // todo handle on click
+        }
         recyclerView.adapter = adapter
 
         val dividerItemDecoration = DividerItemDecoration(

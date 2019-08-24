@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.texi_item_list_content.view.*
 
 
 class TaxisRecyclerViewAdapter(
-    private val parentActivity: MainActivity, taxiClicked: (Taxi) -> Any
+    taxiClicked: (Taxi) -> Any
 ) :
     RecyclerView.Adapter<TaxisRecyclerViewAdapter.ViewHolder>() {
     var values: List<Taxi> = ArrayList()
@@ -32,7 +32,7 @@ class TaxisRecyclerViewAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = values[position]
         holder.titleView.text = item.title
-        holder.contentView.text = "${item.eta}M"
+        holder.contentView.text = formatHoursAndMinutes(item.eta)
 
         with(holder.itemView) {
             tag = item
@@ -45,6 +45,15 @@ class TaxisRecyclerViewAdapter(
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val titleView: TextView = view.title_text
         val contentView: TextView = view.content
-        val circle: TextView = view.circle
+    }
+
+    fun formatHoursAndMinutes(totalMinutes: Int): String {
+        var minutes = (totalMinutes % 60)
+        val hours = (totalMinutes / 60)
+        return if (hours == 0) {
+            "${minutes}m"
+        } else {
+            "${hours}h ${minutes}m"
+        }
     }
 }

@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
                 lifecycleScope.launch {
                     val taxis = persistent.taxis()
                     persistent.addOrUpdateTaxis(taxis.map {
-                        it.eta = Random.nextInt(0, MAX_DISTANS_IN_METERS)
+                        it.eta = Random.nextInt(0, MAX_ETA_IN_MINUTES)
                         it
                     })
                 }
@@ -86,7 +86,7 @@ class MainActivity : AppCompatActivity() {
             val taxis = persistent.taxis()
             if (taxis.isNullOrEmpty()) {
                 persistent.addOrUpdateTaxis(DummyContent.ITEMS.map {
-                    it.eta = Random.nextInt(0, MAX_DISTANS_IN_METERS)
+                    it.eta = Random.nextInt(0, MAX_ETA_IN_MINUTES)
                     it
                 })
             }
@@ -111,7 +111,7 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         const val TIMER_DURATION_IN_SECONDS = 5L
-        const val MAX_DISTANS_IN_METERS = 99
+        const val MAX_ETA_IN_MINUTES = 120
     }
 }
 
